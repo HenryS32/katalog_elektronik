@@ -64,4 +64,11 @@ def main():
 
 
 if __name__ == "__main__":
-    main()
+    import sys
+
+    if "--cli" in sys.argv:
+        main()
+    else:
+        import UI
+
+        UI.main(start_page=2)

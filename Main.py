@@ -1,12 +1,13 @@
 import subprocess
+import sys
 
 
 def buka_tambah_elektronik():
-    subprocess.run(["python", "tambah_elektronik.py"])
+    subprocess.run([sys.executable, "tambah_elektronik.py", "--cli"])
 
 
 def buka_tampil_elektronik():
-    subprocess.run(["python", "tampil_elektronik.py"])
+    subprocess.run([sys.executable, "tampil_elektronik.py", "--cli"])
 
 
 def menu_utama():
@@ -33,4 +34,11 @@ def menu_utama():
 
 
 if __name__ == "__main__":
-    menu_utama()
+    import sys
+
+    if "--cli" in sys.argv:
+        menu_utama()
+    else:
+        import UI
+
+        UI.main(start_page=0)

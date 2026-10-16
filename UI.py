@@ -1539,8 +1539,10 @@ class NeonKatalog(tk.Tk):
                                   "jendela console", self.f_tiny, mix(BG, TXT, 0.45), "se")
 
 
-def main():
+def main(start_page=0):
     app = NeonKatalog()
+    if start_page:
+        app.after(int(app.boot_until * 1000) + 100, lambda: app.go(start_page))
     app.mainloop()
 
 
